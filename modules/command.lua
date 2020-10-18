@@ -5,16 +5,11 @@ local cfg = json.decode(fs.readFileSync('config.json'))
 local prefix = cfg.prefix
 
 local cmds = {}
-local aliases = {}
 
-for _, v in ipairs(fs.readdirSync('./modules/commands')) do
-    local name = v:match('(.*)%.lua$')
-    if name then
-        local command = require('./commands/' .. name)
-        cmds[name] = command
-        for _, alias in ipairs(command.aliases) do
-            aliases[alias] = setmetatable({}, {__index = command})
-        end
+for k, v in pairs(fs.scandirSync('./commands')) do
+    local name = k:match('(.*)%.lua$')
+    if v == 'file' and name then
+        cmds[k] = require('./commands/' .. name)
     end
 end
 
@@ -32,13 +27,22 @@ cmds['command'] = {function()
 
 --]]
 
-local function getFunction(cmd)
-    return cmds[cmd] and cmds[cmd].run or aliases[cmd] and aliases[cmd].run
+local function getFunction()
+   for k in cmds do
+        if k == cmd then
+            return cmds[k][1]
+        end
+        for _, v in ipairs(cmds[k].alias) do
+            if v == cmd then
+                return cmds[v][1]
+            end
+        end
+    end 
 end
 
 local function create(msg)
     local cmd, arg = msg:match(prefix..'(%S+)%s+(.*)')
-    local run = getFunction(cmd)
+    local run = getFunction()
     
     if not run then return end
     
