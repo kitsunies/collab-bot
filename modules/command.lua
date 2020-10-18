@@ -41,7 +41,7 @@ local function getFunction()
 end
 
 local function create(msg)
-    local cmd, arg, run = msg:match(prefix..'(%S+)%s+(.*)'), 
+    local cmd, arg = msg:match(prefix..'(%S+)%s+(.*)')
     local run = getFunction()
     
     if not run then return end
