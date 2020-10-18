@@ -1,4 +1,4 @@
-# Config
-
-config.lua
+deps
 config.json
+gateway.json
+discordia.log
