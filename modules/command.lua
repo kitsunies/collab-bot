@@ -7,7 +7,7 @@ local prefix = cfg.prefix
 local cmds = {}
 
 for k, v in pairs(fs.scandirSync('./commands')) do
-    local name = k:match('(.*)%.lua')
+    local name = k:match('(.*)%.lua$')
     if v == 'file' and name then
         cmds[k] = require('./commands/' .. name)
     end
