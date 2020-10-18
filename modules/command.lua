@@ -7,6 +7,7 @@ local prefix = cfg.prefix
 local handler = {
     cmds = {},
     aliases = {},
+    names = {},
     events = {}
 }
 
@@ -15,6 +16,7 @@ function handler.load()
         local name = v:match('(.*)%.lua$')
         if name then
             local command = require('./commands/' .. name)
+	    table.insert(handler.names, name.." - "..command.description)
             handler.cmds[name] = command
             for _, alias in ipairs(command.aliases) do
                 handler.aliases[alias] = setmetatable({}, {__index = command})
