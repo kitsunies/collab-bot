@@ -6,7 +6,7 @@ local prefix = cfg.prefix
 
 -- TODO: Create better module management
 local modules = {
-    commands = require("./commands")   
+    commands = require("./command")   
 }
 
 local events = {}
