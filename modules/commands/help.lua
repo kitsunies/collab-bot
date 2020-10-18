@@ -13,4 +13,3 @@ return {
     end,
     description = 'Returns a list of the commands.',
     aliases = {'cmds', 'commands'}
-}
