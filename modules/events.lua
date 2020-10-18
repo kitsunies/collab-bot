@@ -6,7 +6,7 @@ local prefix = cfg.prefix
 
 -- TODO: Create better module management
 local modules = {
-    commands = require("./command")   
+    commands = require('./command')   
 }
 
 local events = {}
@@ -14,7 +14,7 @@ local events = {}
 function events.ready(client)
     client:setGame {
         type = 3, 
-        name = prefix.."help"
+        name = prefix..'help'
     }
 end
 
