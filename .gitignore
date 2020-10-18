@@ -3,3 +3,5 @@ config.lua
 gateway.json
 discordia.log
 package.lua
+*.exe
+*.dll
