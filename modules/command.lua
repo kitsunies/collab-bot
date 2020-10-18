@@ -21,18 +21,18 @@ end
 --[[
 
 cmds['command'] = {
-	run = function()
-        -- ...
+    run = function()
+       	-- ...
     end, 
-    description = "description", 
-    aliases = {"exec", "lua" ...}
+    description = 'description', 
+    aliases = {'exec', 'lua', ...}
 }
 
 --]]
 
 local function getFunction(cmd)
-	if not cmd then return end
-	cmd = string.lower(cmd)
+    if not cmd then return end
+    cmd = string.lower(cmd)
     return cmds[cmd] and cmds[cmd].run or aliases[cmd] and aliases[cmd].run
 end
 
@@ -40,8 +40,8 @@ local function create(msg)
     local cmd, arg = msg.cleanContent:match(prefix..'(%S+)%s*(.*)')
     local run = getFunction(cmd)
 	
-	if msg.author.bot then return end
-	if not msg.guild then return end
+    if msg.author.bot then return end
+    if not msg.guild then return end
     if not run then return end
     
     local suc, res = pcall(run, arg, msg)
