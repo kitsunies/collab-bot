@@ -1,4 +1,4 @@
 return {
-  token = "Token stuff here",
-  prefix = "?"
+  token = 'Token stuff here',
+  prefix = '?'
 }
