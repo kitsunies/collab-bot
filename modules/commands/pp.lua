@@ -3,7 +3,7 @@ return {
        	msg:reply{
           embed = {
             title = 'Nice cock bro',
-            description = msg.author.name..'\'s pp:\n8'..string.rep('=', math.random(3, 16)..'D')
+            description = msg.author.name..'\'s pp:\n8'..string.rep('=', math.random(3, 16))..'D'
           }
         }
     end, 
