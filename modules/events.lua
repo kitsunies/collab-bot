@@ -1,12 +1,12 @@
 local json = require('json')
 local fs = require('fs')
 
-local cfg = json.decode(fs.readFileSync('config.json'))
+local cfg = require('../config')
 local prefix = cfg.prefix
 
 -- TODO: Create better module management
 local modules = {
-    commands = require("./command")   
+    commands = require('./command')   
 }
 
 local events = {}
@@ -14,18 +14,18 @@ local events = {}
 function events.ready(client)
     client:setGame {
         type = 3, 
-        name = prefix.."help"
+        name = prefix..'help'
     }
 end
 
-function events.messageCreate(client, msg)
-    modules.commands.create()
+function events.messageCreate(_, ...)
+    modules.commands.create(...)
     -- ...
 end
 
 
-function events.messageDelete(client, msg)
-    modules.commands.delete()
+function events.messageDelete(_, ...)
+    modules.commands.delete(...)
     -- ...
 end
 
