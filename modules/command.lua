@@ -40,7 +40,7 @@ cmds['command'] = {
 local function getFunction(cmd)
     if not cmd then return end
     cmd = string.lower(cmd)
-    return cmds[cmd] and cmds[cmd].run or aliases[cmd] and aliases[cmd].run
+    return handler.cmds[cmd] and handler.cmds[cmd].run or handler.aliases[cmd] and handler.aliases[cmd].run
 end
 
 function handler.events.create(msg)
