@@ -1,14 +1,12 @@
 local discordia = require("discordia")
 local client = discordia.Client()
 
-local prefix = "idk "
+local eventHandler = require('./modules/events')
 
-client:on("messageCreate", function(msg)
-    -- Do stuff later 
-end)
-
-client:on("ready", function()
-  client:setGame{type = 3, name = idk.."help"}
-end)
+for k, v in pairs(eventHandler) do
+	client:on(k, function(...) 
+		v(client, ...)
+	end)
+end
 
 client:run("Bot SECRETSyUFF")
