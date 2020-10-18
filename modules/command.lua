@@ -41,7 +41,7 @@ local function getFunction(cmd)
     return cmds[cmd] and cmds[cmd].run or aliases[cmd] and aliases[cmd].run
 end
 
-function handler.create(msg)
+function handler.events.create(msg)
     local cmd, arg = msg.cleanContent:match(prefix..'(%S+)%s*(.*)')
     local run = getFunction(cmd)
 	
@@ -58,7 +58,7 @@ function handler.create(msg)
     end
 end
 
-function handler.delete(msg)
+function handler.events.delete(msg)
     -- ...
 end
 
