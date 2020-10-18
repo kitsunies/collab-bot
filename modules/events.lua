@@ -1,7 +1,7 @@
 local json = require('json')
 local fs = require('fs')
 
-local cfg = json.decode(fs.readFileSync('config.json'))
+local cfg = require('../config')
 local prefix = cfg.prefix
 
 -- TODO: Create better module management
