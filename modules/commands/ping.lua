@@ -1,8 +1,9 @@
 -- Demonstration Command
 
-return {function(arg, msg)
-        msg:reply 'pong!'
-    end, 
-    'Demonstration command for "Colab-Bot".', 
-    {alias = {"pong"}}
+return {
+	run = function(arg, msg)
+		msg:reply("Pong!")
+	end,
+	description = "Ping Pong",
+	aliases = {"pong"}
 }

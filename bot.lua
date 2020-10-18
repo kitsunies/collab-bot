@@ -9,4 +9,4 @@ for k, v in pairs(eventHandler) do
     end)
 end
 
-client:run("Bot SECRETSyUFFS")
+client:run("Bot SECRETSTUFF")

@@ -18,13 +18,13 @@ function events.ready(client)
     }
 end
 
-function events.messageCreate(...)
+function events.messageCreate(_, ...)
     modules.commands.create(...)
     -- ...
 end
 
 
-function events.messageDelete(...)
+function events.messageDelete(_, ...)
     modules.commands.delete(...)
     -- ...
 end
