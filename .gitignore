@@ -2,3 +2,4 @@ deps
 config.json
 gateway.json
 discordia.log
+package.lua
