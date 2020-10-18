@@ -4,16 +4,23 @@ local fs = require('fs')
 local cfg = require('../config')
 local prefix = cfg.prefix
 
-local cmds = {}
-local aliases = {}
+local handler = {
+    cmds = {},
+    aliases = {},
+    names = {},
+    events = {}
+}
 
-for _, v in ipairs(fs.readdirSync('./modules/commands')) do
-    local name = v:match('(.*)%.lua$')
-    if name then
-        local command = require('./commands/' .. name)
-        cmds[name] = command
-        for _, alias in ipairs(command.aliases) do
-            aliases[alias] = setmetatable({}, {__index = command})
+function handler.load()
+    for _, v in ipairs(fs.readdirSync('./modules/commands')) do
+        local name = v:match('(.*)%.lua$')
+        if name then
+            local command = require('./commands/' .. name)
+	    table.insert(handler.names, name.." - "..command.description)
+            handler.cmds[name] = command
+            for _, alias in ipairs(command.aliases) do
+                handler.aliases[alias] = setmetatable({}, {__index = command})
+            end
         end
     end
 end
@@ -33,10 +40,10 @@ cmds['command'] = {
 local function getFunction(cmd)
     if not cmd then return end
     cmd = string.lower(cmd)
-    return cmds[cmd] and cmds[cmd].run or aliases[cmd] and aliases[cmd].run
+    return handler.cmds[cmd] and handler.cmds[cmd].run or handler.aliases[cmd] and handler.aliases[cmd].run
 end
 
-local function create(msg)
+function handler.events.create(msg)
     local cmd, arg = msg.cleanContent:match(prefix..'(%S+)%s*(.*)')
     local run = getFunction(cmd)
 	
@@ -53,11 +60,8 @@ local function create(msg)
     end
 end
 
-local function delete(msg)
+function handler.events.delete(msg)
     -- ...
 end
 
-return {
-    create = create,
-    delete = delete
-}
+return handler
