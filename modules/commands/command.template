@@ -2,6 +2,6 @@ return {
     run = function()
        	-- ...
     end, 
-    description = 'description', 
-    aliases = {'exec', 'lua', ...}
+    description = '', 
+    aliases = {}
 }
