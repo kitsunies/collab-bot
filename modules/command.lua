@@ -27,11 +27,26 @@ cmds['command'] = {function()
 
 --]]
 
+local function getFunction()
+   for k in cmds do
+        if k == cmd then
+            return cmds[k][1]
+        end
+        for _, v in ipairs(cmds[k].alias) do
+            if v == cmd then
+                return cmds[v][1]
+            end
+        end
+    end 
+end
+
 local function create(msg)
-    local cmd, arg = msg:match(prefix..'(%S+)%s+(.*)')
-    if not cmds[cmd] then return end
+    local cmd, arg, run = msg:match(prefix..'(%S+)%s+(.*)'), 
+    local run = getFunction()
     
-    local suc, res = pcall(cmds[cmd][1], arg, msg)
+    if not run then return end
+    
+    local suc, res = pcall(run, arg, msg)
     
     if suc then
         -- ...
