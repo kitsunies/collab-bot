@@ -1,6 +1,7 @@
-local discordia = require("discordia")
+local discordia = require('discordia')
 local client = discordia.Client()
 
+local cfg = require('./config')
 local eventHandler = require('./modules/events')
 
 for k, v in pairs(eventHandler) do
@@ -9,4 +10,4 @@ for k, v in pairs(eventHandler) do
     end)
 end
 
-client:run("Bot SECRETSTUFF")
+client:run('Bot '..cfg.token)
