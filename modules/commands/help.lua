@@ -4,12 +4,13 @@ local commandHandler = require('../command')
 
 return {
     run = function(_, msg)
-        msg:reply{
-          embed = {
-            title = 'Commands',
-            description = table.concat(commandHandler.names, '\n')
-          }
+        msg:reply {
+            embed = {
+                title = 'Commands',
+                description = table.concat(commandHandler.names, '\n')
+            }
         }
     end,
     description = 'Returns a list of the commands.',
-    aliases = {'cmds', 'commands'}
+    aliases = {'cmds'}
+}
