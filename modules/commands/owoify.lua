@@ -21,6 +21,7 @@ end
 
 return {
     run = function(arg, msg)
+        if not arg then return msg:reply('There is nothing to OwOify idiot') end
        	msg:reply {
             embed = {
                 title = 'OwOification Success!~',
