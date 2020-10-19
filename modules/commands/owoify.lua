@@ -28,6 +28,6 @@ return {
             }
         }
     end, 
-    description = 'Get the size of your pp', 
-    aliases = {'penis', 'ppsize'}
+    description = 'Converts text to OwOspeak', 
+    aliases = {'owo', 'uwuify', 'uwu'}
 }
