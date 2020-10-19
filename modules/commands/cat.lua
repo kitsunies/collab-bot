@@ -2,7 +2,7 @@ local http = require('coro-http')
 local json = require('json')
 
 return {
-    run = function()
+    run = function(_, msg)
     	local _, body = http.request('GET', 'https://api.thecatapi.com/v1/images/search')
     	local data = assert(json.decode(body), 'Bad JSON')
 
