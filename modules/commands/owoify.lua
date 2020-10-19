@@ -1,5 +1,5 @@
-vowels  = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'}
-smileys = {';;w;;', '^w^', '>w<', 'UwU', '(・`ω´・)', '(´・ω・`)'}
+local vowels  = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'}
+local smileys = {';;w;;', '^w^', '>w<', 'UwU', '(・`ω´・)', '(´・ω・`)'}
 
 --! From https://github.com/kitsunies/OwOify.lua (not a plug I swear)
 
