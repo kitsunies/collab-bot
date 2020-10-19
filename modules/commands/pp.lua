@@ -7,6 +7,7 @@ return {
             }
         }
     end, 
-    description = 'Get the size of your pp', 
+    description = 'Get the size of your pp',
+    group = 'fun',
     aliases = {'penis', 'ppsize'}
 }

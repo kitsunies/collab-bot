@@ -30,5 +30,6 @@ return {
         }
     end, 
     description = 'Converts text to OwOspeak', 
+    group = 'text',
     aliases = {'owo', 'uwuify', 'uwu'}
 }

@@ -10,5 +10,6 @@ return {
         end
     end,
     description = "End's the bot's client",
+    group = 'utility',
     aliases = {'close'}
 }

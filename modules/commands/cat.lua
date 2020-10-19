@@ -15,6 +15,7 @@ return {
     		}
     	}
     end, 
-    description = 'Gets pictures of cats from [The Cat Api](https://thecatapi.com)', 
+    description = 'Gets pictures of cats from [The Cat Api](https://thecatapi.com)',
+    group = 'image',
     aliases = {}
 }

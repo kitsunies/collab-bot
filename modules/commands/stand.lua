@@ -39,5 +39,6 @@ return {
         msg:reply(gen(arg))
     end,
     description = "Generates text surround by blocks.",
+    group = 'text',
     aliases = {}
 }
