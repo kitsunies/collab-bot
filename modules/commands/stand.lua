@@ -1,18 +1,41 @@
-local fw = "𝑨 𝑩 𝑪 𝑫 𝑬 𝑭 𝑮 𝑯 𝑰 𝑱 𝑲 𝑳 𝑴 𝑵 𝑶 𝑷 𝑸 𝑹 𝑺 𝑻 𝑼 𝑽 𝑾 𝑿 𝒀 𝒁"
-local charMap, index = {}, 1
-for c in fw:gmatch('(%S)%s+') do
-	  charMap[64 + index] = { c:byte(1, 9) }
-    index = index + 1
-end
+local charMap = {
+    A = '𝑨',
+    B = '𝑩',
+    C = '𝑪',
+    D = '𝑫',
+    E = '𝑬',
+    F = '𝑭',
+    G = '𝑮',
+    H = '𝑯',
+    I = '𝑰',
+    J = '𝑱', 
+    K = '𝑲',
+    L = '𝑳',
+    M = '𝑴',
+    N = '𝑵',
+    O = '𝑶',
+    P = '𝑷',
+    Q = '𝑸',
+    R = '𝑹',
+    S = '𝑺',
+    T = '𝑻',
+    U = '𝑼',
+    V = '𝑽',
+    W = '𝑾',
+    X = '𝑿',
+    Y = '𝒀',
+    Z = '𝒁'
+}
 
 local function gen(str)
-    return ('**『 '..str:upper()..' 』**'):gsub("%u", function(c) 
-        return string.char(unpack(charMap[c:byte()]))
+    return ('**『 '..str:upper()..' 』**'):gsub(".", function(c) 
+        return charMap[c] or c
     end)
 end
 
 return {
     run = function(arg, msg)
+        if not arg then return msg:reply('Theres nothing to stand') end
         msg:reply(gen(arg))
     end,
     description = "Generates text surround by blocks.",
