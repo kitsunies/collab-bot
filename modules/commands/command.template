@@ -1,5 +1,5 @@
 return {
-    run = function()
+    run = function(arg, msg)
        	-- ...
     end, 
     description = '', 
