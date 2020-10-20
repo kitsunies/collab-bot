@@ -16,8 +16,12 @@ function handler.load()
         local name = v:match('(.*)%.lua$')
         if name then
             local command = require('./commands/' .. name)
-	    table.insert(handler.names, name.." - "..command.description)
+
+	    	handler.names[command.group] = handler.names[command.group] or {}
+	    	table.insert(handler.names[command.group], '• '..name..' - '..command.description)
+
             handler.cmds[name] = command
+            
             for _, alias in ipairs(command.aliases) do
                 handler.aliases[alias] = setmetatable({}, {__index = command})
             end
@@ -31,7 +35,8 @@ cmds['command'] = {
     run = function()
        	-- ...
     end, 
-    description = 'description', 
+    description = 'description',
+    group = '' ,
     aliases = {'exec', 'lua', ...}
 }
 

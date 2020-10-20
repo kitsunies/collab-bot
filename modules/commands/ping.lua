@@ -5,5 +5,6 @@ return {
 		msg:reply('Pong!')
 	end,
 	description = 'Ping Pong',
+	group = 'utility',
 	aliases = {'pong'}
 }
