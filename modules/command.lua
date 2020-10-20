@@ -55,6 +55,7 @@ function handler.events.create(msg)
     if msg.author.bot then return end
     if not msg.guild then return end
     if not run then return end
+    if #arg == 0 then arg = nil end
     
     local suc, res = pcall(run, arg, msg)
     
