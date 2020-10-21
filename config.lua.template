@@ -2,7 +2,8 @@ return {
     token = 'Token stuff here',
     prefix = '?',
     owners = {
-        ['274929341396418562'] = true,
-        ['395759655344668690'] = true
+        ['id'] = true,
+        ['id2'] = true    
+        ...
     }
 }
