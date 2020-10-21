@@ -1,7 +1,6 @@
 deps
 config.lua
 gateway.json
-discordia.log
-package.lua
+*.log
 *.exe
 *.dll
