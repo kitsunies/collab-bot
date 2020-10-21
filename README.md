@@ -1,2 +1,3 @@
 # colab-bot
-idk lol
+
+Pretty dumb bot made by ~~bot~~ bug creators
