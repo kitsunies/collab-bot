@@ -5,9 +5,10 @@ local responses = {
     'Maybe',
     'Ask again later',
     'Definitely',
-    'Most likely',
-    'Probably not',
-    'Definitely not',
+    'Most Likely',
+    'Probably Not',
+    'Definitely Not',
+    'Unlikely'
 }
 
 return {
