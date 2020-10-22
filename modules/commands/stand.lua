@@ -28,9 +28,7 @@ local charMap = {
 }
 
 local function gen(str)
-    return ('**『 '..str:upper()..' 』**'):gsub(".", function(c) 
-        return charMap[c] or c
-    end)
+    return ('**『 '..str:upper()..' 』**'):gsub(".", charMap)
 end
 
 return {
